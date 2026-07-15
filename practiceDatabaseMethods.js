@@ -45,8 +45,10 @@ createNewRecipe()
 
 async function getAllRecipes(){ 
     try { 
-const allRecipes = await Recipe.find(Recipe) 
-console.log(`${name} is an ${difficulty} recipe and takes ${prepTime} minutes to prepare.`)
+const allRecipes = await Recipe.find() 
+allRecipes.forEach((oneRecipe) =>{
+    console.log(`${oneRecipe.name} is an ${oneRecipe.difficulty} recipe and takes ${oneRecipe.prepTime} minutes to prepare.`)
+})
     } catch (err) { 
         console.log("Error: No recipe found" , err )
     } 
@@ -66,6 +68,7 @@ getRecipeById()
 
 async function updateOneRecipe(){ 
     const updateRecipe = await Recipe.findByIdAndUpdate("6a4ce4b0799eaa32bc3340b4", 
+        {title: "New Recipe Title"}
 {new:true} 
     )
 }
