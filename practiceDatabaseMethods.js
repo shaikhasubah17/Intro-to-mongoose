@@ -68,10 +68,11 @@ getRecipeById()
 
 async function updateOneRecipe(){ 
     const updateRecipe = await Recipe.findByIdAndUpdate("6a4ce4b0799eaa32bc3340b4", 
-        {title: "New Recipe Title"}
-{new:true} 
+        {title: "New Recipe Title"}, {new:true} 
     )
 }
+
+updateOneRecipe() 
 
 // delete recipe by ID 
 
